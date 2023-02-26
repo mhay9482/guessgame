@@ -1,3 +1,4 @@
+console.log('guess.js loaded');
 let friendNumber;
 let guessForm = document.getElementById('guess-form');
 let resultDiv = document.getElementById('result');
