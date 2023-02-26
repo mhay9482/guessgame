@@ -18,6 +18,17 @@ firebase.initializeApp(firebaseConfig);
 // Get a reference to the database service
 var database = firebase.database();
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    // Add code to allow the user to play the game.
+  } else {
+    // User is not signed in.
+    // Add code to prompt the user to sign in.
+  }
+});
+
+
 document.getElementById('friend-form').addEventListener('submit', function(event) {
   event.preventDefault();
   friendNumber = parseInt(event.target.elements['friend-number'].value);
