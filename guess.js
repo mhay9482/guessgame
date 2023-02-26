@@ -1,9 +1,10 @@
 console.log('guess.js loaded');
+
 let friendNumber;
 let guessForm = document.getElementById('guess-form');
 let resultDiv = document.getElementById('result');
 
-// Initialize Firebase
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAjmgQXtPhGo4R3QQsVtKHL2I_A3tALgh4",
   authDomain: "guess-33aeb.firebaseapp.com",
@@ -13,21 +14,12 @@ const firebaseConfig = {
   appId: "1:479303758684:web:5d1993087d25d790ac0799",
   measurementId: "G-TR5BD1GS2J"
 };
+
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 var database = firebase.database();
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    // Add code to allow the user to play the game.
-  } else {
-    // User is not signed in.
-    // Add code to prompt the user to sign in.
-  }
-});
-
 
 document.getElementById('friend-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -36,8 +28,6 @@ document.getElementById('friend-form').addEventListener('submit', function(event
   // Save the friend's number to the database
   database.ref('friendNumber').set(friendNumber);
 });
-
-
 
 guessForm.addEventListener('submit', function(event) {
   event.preventDefault();
